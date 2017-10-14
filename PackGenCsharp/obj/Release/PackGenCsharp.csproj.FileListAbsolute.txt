@@ -1,0 +1,9 @@
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\PackGenCsharp\PackGenCsharp\bin\Release\PackGenCsharp.exe.config
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\PackGenCsharp\PackGenCsharp\bin\Release\PackGenCsharp.exe
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\PackGenCsharp\PackGenCsharp\bin\Release\PackGenCsharp.pdb
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\PackGenCsharp\PackGenCsharp\obj\Release\PackGenCsharp.Form1.resources
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\PackGenCsharp\PackGenCsharp\obj\Release\PackGenCsharp.Properties.Resources.resources
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\PackGenCsharp\PackGenCsharp\obj\Release\PackGenCsharp.csproj.GenerateResource.Cache
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\PackGenCsharp\PackGenCsharp\obj\Release\PackGenCsharp.exe
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\PackGenCsharp\PackGenCsharp\obj\Release\PackGenCsharp.pdb
+C:\Users\Admin\Documents\Visual Studio 2017\Projects\PackGenCsharp\PackGenCsharp\obj\Release\PackGenCsharp.csprojResolveAssemblyReference.cache
