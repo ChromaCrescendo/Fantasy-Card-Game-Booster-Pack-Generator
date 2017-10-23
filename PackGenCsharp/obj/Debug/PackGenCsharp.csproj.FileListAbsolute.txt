@@ -7,3 +7,13 @@ C:\Users\Admin\documents\visual studio 2017\Projects\PackGenCsharp\PackGenCsharp
 C:\Users\Admin\documents\visual studio 2017\Projects\PackGenCsharp\PackGenCsharp\obj\Debug\PackGenCsharp.csproj.GenerateResource.Cache
 C:\Users\Admin\documents\visual studio 2017\Projects\PackGenCsharp\PackGenCsharp\obj\Debug\PackGenCsharp.exe
 C:\Users\Admin\documents\visual studio 2017\Projects\PackGenCsharp\PackGenCsharp\obj\Debug\PackGenCsharp.pdb
+C:\Users\Admin\Documents\Visual Studio 2017\Class\Projects\PackGenCsharp\PackGenCsharp\bin\Debug\PackGenCsharp.exe.config
+C:\Users\Admin\Documents\Visual Studio 2017\Class\Projects\PackGenCsharp\PackGenCsharp\bin\Debug\PackGenCsharp.exe
+C:\Users\Admin\Documents\Visual Studio 2017\Class\Projects\PackGenCsharp\PackGenCsharp\bin\Debug\PackGenCsharp.pdb
+C:\Users\Admin\Documents\Visual Studio 2017\Class\Projects\PackGenCsharp\PackGenCsharp\obj\Debug\PackGenCsharp.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\Visual Studio 2017\Class\Projects\PackGenCsharp\PackGenCsharp\obj\Debug\PackGenCsharp.Form1.resources
+C:\Users\Admin\Documents\Visual Studio 2017\Class\Projects\PackGenCsharp\PackGenCsharp\obj\Debug\PackGenCsharp.Properties.Resources.resources
+C:\Users\Admin\Documents\Visual Studio 2017\Class\Projects\PackGenCsharp\PackGenCsharp\obj\Debug\PackGenCsharp.csproj.GenerateResource.Cache
+C:\Users\Admin\Documents\Visual Studio 2017\Class\Projects\PackGenCsharp\PackGenCsharp\obj\Debug\PackGenCsharp.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Documents\Visual Studio 2017\Class\Projects\PackGenCsharp\PackGenCsharp\obj\Debug\PackGenCsharp.exe
+C:\Users\Admin\Documents\Visual Studio 2017\Class\Projects\PackGenCsharp\PackGenCsharp\obj\Debug\PackGenCsharp.pdb

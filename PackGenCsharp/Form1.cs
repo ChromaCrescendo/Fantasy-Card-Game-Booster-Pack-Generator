@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PackGenCsharp
@@ -21,7 +16,7 @@ namespace PackGenCsharp
 
         //integer for the desired number of opened card packs
         //array to hold every possible card
-        int numPacks; string[] cards; string chosenDeck;
+        int numPacks; string[] cards; string chosenDeck; string DeckPath; 
          
         public Form1()
         {
@@ -34,9 +29,9 @@ namespace PackGenCsharp
             openfile.Filter = "Text (*.txt)|*.txt";
             if (System.Windows.Forms.DialogResult.OK == openfile.ShowDialog())
             {
-                string myfile = openfile.FileName;
-                chosenDeck = myfile;
-                cards = File.ReadAllLines(myfile);
+                DeckPath = openfile.FileName;
+                chosenDeck = DeckPath;
+                cards = File.ReadAllLines(DeckPath);
 
                 //for each loop to put every card in the left list box to show possibles
                 foreach (string item in cards)
@@ -61,6 +56,7 @@ namespace PackGenCsharp
                     //Checking if deck file is selected
                     if (cards != null)
                     {
+                        StringBuilder sbDraws = new StringBuilder();
                         //for loop to run for every pack
                         for (int i = 0; i < numPacks; i++)
                         {
@@ -102,6 +98,42 @@ namespace PackGenCsharp
         private void tbPack_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void newToolStripButton_Click(object sender, EventArgs e)
+        {
+            tbPack.Text = "";
+            lbPossibles.Items.Clear();
+            lbDraws.Items.Clear();
+            cards = null;
+            DeckPath = null;
+            chosenDeck = null;
+        }
+
+        private void saveToolStripButton_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog savefile = new SaveFileDialog();
+            savefile.Filter = "Text (*.txt)|*.txt";
+            if (System.Windows.Forms.DialogResult.OK == savefile.ShowDialog())
+            {
+                //try to save file at path chosen in save file dialog
+                try
+                {
+                    string filePath = savefile.FileName;
+                    //string safeFilePath = Path.GetFileName(filePath);
+                    System.IO.StreamWriter SaveFile = new System.IO.StreamWriter(filePath);
+                    foreach (var item in lbDraws.Items)
+                    {
+                        SaveFile.WriteLine(item);
+                    }
+                    MessageBox.Show("File Written to: " + filePath);
+                }
+                //throw error message for every exception
+                catch (Exception error)
+                {
+                    MessageBox.Show(error.Message);
+                }
+            }
         }
     }
 }
