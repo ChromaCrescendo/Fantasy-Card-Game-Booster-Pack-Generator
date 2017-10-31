@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace PackGenCsharp
 {
@@ -16,11 +17,107 @@ namespace PackGenCsharp
 
         //integer for the desired number of opened card packs
         //array to hold every possible card
-        int numPacks; string[] cards; string chosenDeck; string DeckPath; 
+        int numPacks; string[] cards; string chosenDeck; string DeckPath;
+        //store a name for the app, change-able if needed
+        string AppName = "Booster Packer";
          
         public Form1()
         {
             InitializeComponent();
+        }
+
+        void ChangeTheme(int themeNum)
+        {
+            switch (themeNum)
+            {
+                //Default theme
+                case 0:
+                    Form1.ActiveForm.BackColor = SystemColors.Control;
+                    Form1.ActiveForm.ForeColor = Color.Black;
+                    defaultToolStripMenuItem.Checked = true;
+                    darkToolStripMenuItem.Checked = false;
+                    marbleToolStripMenuItem.Checked = false;
+                    /*toolStrip1.BackColor = SystemColors.Control;
+                    toolStrip1.ForeColor = Color.Black;
+
+                    tbPack.ForeColor = Color.Black;
+                    tbPack.BackColor = Color.White;
+                    lbPossibles.ForeColor = Color.Black;
+                    lbPossibles.BackColor = Color.White;
+                    lbDraws.ForeColor = Color.Black;
+                    lbDraws.BackColor = Color.White;*/
+                    //Form1.ActiveForm.BackColor = menuStrip1.BackColor;
+                    break;
+                //Dark theme
+                case 1:
+                    Form1.ActiveForm.BackColor = SystemColors.ControlDarkDark;
+                    Form1.ActiveForm.ForeColor = Color.WhiteSmoke;
+                    darkToolStripMenuItem.Checked = true;
+                    marbleToolStripMenuItem.Checked = false;
+                    defaultToolStripMenuItem.Checked = false;
+                    /*toolStrip1.BackColor = SystemColors.ControlDarkDark;
+                    toolStrip1.ForeColor = Color.WhiteSmoke;
+
+                    tbPack.ForeColor = Color.WhiteSmoke;
+                    tbPack.BackColor = SystemColors.ControlDarkDark;
+                    lbPossibles.ForeColor = Color.WhiteSmoke;
+                    lbPossibles.BackColor = SystemColors.ControlDarkDark;
+                    lbDraws.ForeColor = Color.WhiteSmoke;
+                    lbDraws.BackColor = SystemColors.ControlDarkDark;
+                    Form1.ActiveForm.BackColor = toolStrip1.BackColor;*/
+                    break;
+                //Marble theme
+                case 2:
+                    Form1.ActiveForm.BackColor = Color.OrangeRed;
+                    Form1.ActiveForm.ForeColor = Color.Yellow;
+                    marbleToolStripMenuItem.Checked = true;
+                    defaultToolStripMenuItem.Checked = false;
+                    darkToolStripMenuItem.Checked = false;
+                    /*toolStrip1.BackColor = Color.Firebrick;
+                    toolStrip1.ForeColor = Color.LightYellow;
+
+                    tbPack.ForeColor = Color.Yellow;
+                    tbPack.BackColor = Color.OrangeRed;
+                    lbPossibles.ForeColor = Color.Yellow;
+                    lbPossibles.BackColor = Color.OrangeRed;
+                    lbDraws.ForeColor = Color.Yellow;
+                    lbDraws.BackColor = Color.OrangeRed;*/
+                    //Form1.ActiveForm.BackColor = menuStrip1.BackColor;
+                    break;
+            }
+            //waterfall the form1 back color and fore color to other controls
+            tbPack.ForeColor = Form1.ActiveForm.ForeColor;
+            tbPack.BackColor = Form1.ActiveForm.BackColor;
+            lbPossibles.ForeColor = Form1.ActiveForm.ForeColor;
+            lbPossibles.BackColor = Form1.ActiveForm.BackColor;
+            lbDraws.ForeColor = Form1.ActiveForm.ForeColor;
+            lbDraws.BackColor = Form1.ActiveForm.BackColor;
+            btnPick.ForeColor = Form1.ActiveForm.ForeColor;
+            btnPick.BackColor = Form1.ActiveForm.BackColor;
+            btnGen.ForeColor = Form1.ActiveForm.ForeColor;
+            btnGen.BackColor = Form1.ActiveForm.BackColor;
+            toolStrip1.BackColor = SystemColors.Control;
+            toolStrip1.ForeColor = Color.Black;
+
+            //If custom font color...(ORIGINAL)
+            /*if (chosenColor != null)
+            {//Ask if the user wants to keep it
+                string keepColor = Prompt.ShowDialog("Would you like to keep your custom font color?", "Keep font color?").ToUpper();
+
+                if (keepColor == "YES")
+                {//User wants to keep his custom font color
+                    rtb.ForeColor = Color.FromName(chosenColor);
+                }
+                else
+                {//User doesn't want to keep custom font color, trash custom color reference
+                    chosenColor = null;
+                }
+            }*/
+            //If custom font color...
+            /* if (chosenColor != null)
+             {//Keep the custom font color
+                 rtb.ForeColor = Color.FromName(chosenColor);
+             }*/
         }
 
         private void btnPick_Click(object sender, EventArgs e)
@@ -44,19 +141,18 @@ namespace PackGenCsharp
 
         private void btnGen_Click(object sender, EventArgs e)
         {
-            //Checking if number of packs is empty
-            if (tbPack.Text != "")
+            //Try to parse the number of packs to open
+            if (int.TryParse(tbPack.Text, out numPacks) && numPacks >= 1)
             {
-                numPacks = int.Parse(tbPack.Text);
+                //old way
+                //numPacks = int.Parse(tbPack.Text);
                 Random r = new Random();
 
                 //Checking if number of packs is not zero or a negative number
-                if (numPacks >= 1)
-                {
                     //Checking if deck file is selected
                     if (cards != null)
                     {
-                        StringBuilder sbDraws = new StringBuilder();
+                        //StringBuilder sbDraws = new StringBuilder();
                         //for loop to run for every pack
                         for (int i = 0; i < numPacks; i++)
                         {
@@ -73,15 +169,11 @@ namespace PackGenCsharp
                     {
                         MessageBox.Show("You must select a valid deck file!");
                     }
-                }
-                else
-                {
-                    MessageBox.Show("You must type a positive number of card packs, at least one or more!");
-                }
             }
             else
             {
-                MessageBox.Show("You must select a number of card packs to open!");
+                MessageBox.Show("You must select a valid number of card packs to open!\nAt least one or more, no commas!");
+                tbPack.Focus();
             }
         }
 
@@ -91,11 +183,6 @@ namespace PackGenCsharp
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbPack_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -134,6 +221,34 @@ namespace PackGenCsharp
                     MessageBox.Show(error.Message);
                 }
             }
+        }
+
+        private void helpToolStripButton_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(AppName + " is a free, open-source booster pack generator, for automating the opening of card packs for custom card games, and saving your results on the fly!\n" +
+                "Try the following steps to get your packs opened!\n\n" +
+                "1. Open a source text file, where your cards are stored line-by-line, with no spaces, using the 'Pick Source' button\n" +
+                "2. Specify a number of card packs to open in the text box\n" +
+                "3. Click the 'Open Packs' button to generate your results\n" +
+                "(optional) 4. Click the 'Save' button to save your results to a text file\n\n"+
+                "Original Author: Robert Tripp Ross IV\n" +
+                "V0.1\n");
+            tbPack.Focus();
+        }
+
+        private void defaultToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeTheme(0);
+        }
+
+        private void darkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeTheme(1);
+        }
+
+        private void marbleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeTheme(2);
         }
     }
 }
