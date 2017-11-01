@@ -200,7 +200,7 @@ namespace PackGenCsharp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ChangeTheme(1);
+            ChangeTheme(2);
         }
 
         private void newToolStripButton_Click(object sender, EventArgs e)
@@ -227,9 +227,14 @@ namespace PackGenCsharp
                     System.IO.StreamWriter SaveFile = new System.IO.StreamWriter(filePath);
                     foreach (var item in lbDraws.Items)
                     {
+                        //Write from stream to list box for each line in the list box
                         SaveFile.WriteLine(item);
                     }
+                    //Stream has to be closed or it won't output text
+                    SaveFile.Close();
                     MessageBox.Show("File Written to: " + filePath);
+                    //Alternate
+                    //SaveFile.Flush();
                 }
                 //throw error message for every exception
                 catch (Exception error)

@@ -27,3 +27,4 @@ C:\Users\Admin\Documents\Visual Studio 2017\PackGenCsharp\PackGenCsharp\PackGenC
 C:\Users\Admin\Documents\Visual Studio 2017\PackGenCsharp\PackGenCsharp\PackGenCsharp\obj\Debug\PackGenCsharp.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Documents\Visual Studio 2017\PackGenCsharp\PackGenCsharp\PackGenCsharp\obj\Debug\PackGenCsharp.exe
 C:\Users\Admin\Documents\Visual Studio 2017\PackGenCsharp\PackGenCsharp\PackGenCsharp\obj\Debug\PackGenCsharp.pdb
+C:\Users\Admin\Documents\Visual Studio 2017\PackGenCsharp\PackGenCsharp\PackGenCsharp\obj\Debug\PackGenCsharp.csprojResolveAssemblyReference.cache
