@@ -20,7 +20,7 @@ namespace PackGenCsharp
         int numPacks; string[] cards; string chosenDeck; string DeckPath;
         //store a name for the app, change-able if needed
         string AppName = "Booster Packer";
-         
+
         public Form1()
         {
             InitializeComponent();
@@ -33,11 +33,12 @@ namespace PackGenCsharp
                 //Default theme
                 case 0:
                     Form1.ActiveForm.BackColor = SystemColors.Control;
+                    tableLayoutPanel1.BackColor = SystemColors.Control;
                     Form1.ActiveForm.ForeColor = Color.Black;
                     defaultToolStripMenuItem.Checked = true;
                     darkToolStripMenuItem.Checked = false;
                     marbleToolStripMenuItem.Checked = false;
-                    /*toolStrip1.BackColor = SystemColors.Control;
+                    toolStrip1.BackColor = SystemColors.Control;
                     toolStrip1.ForeColor = Color.Black;
 
                     tbPack.ForeColor = Color.Black;
@@ -45,48 +46,63 @@ namespace PackGenCsharp
                     lbPossibles.ForeColor = Color.Black;
                     lbPossibles.BackColor = Color.White;
                     lbDraws.ForeColor = Color.Black;
-                    lbDraws.BackColor = Color.White;*/
-                    //Form1.ActiveForm.BackColor = menuStrip1.BackColor;
+                    lbDraws.BackColor = Color.White;
+                    //Form1.ActiveForm.BackColor = menuStrip1.BackColor
+                    tableLayoutPanel1.BackgroundImage = null;
+                    tableLayoutPanel1.ForeColor = Color.Black;
+                    tableLayoutPanel1.BackColor = SystemColors.Control;
                     break;
-                //Dark theme
+                //Dark marble theme
                 case 1:
-                    Form1.ActiveForm.BackColor = SystemColors.ControlDarkDark;
-                    Form1.ActiveForm.ForeColor = Color.WhiteSmoke;
+                    lbDraws.BackColor = SystemColors.ControlDarkDark;
+                    lbPossibles.BackColor = SystemColors.ControlDarkDark;
+                    tbPack.BackColor = SystemColors.ControlDarkDark;
+                    tbPack.ForeColor = Color.WhiteSmoke;
+                    lbDraws.ForeColor = Color.WhiteSmoke;
+                    lbPossibles.ForeColor = Color.WhiteSmoke;
+                    tbPack.BorderStyle = BorderStyle.FixedSingle;
+                    lbDraws.BorderStyle = BorderStyle.FixedSingle;
+                    lbPossibles.BorderStyle = BorderStyle.FixedSingle;
+                    tableLayoutPanel1.BackgroundImage = global::PackGenCsharp.Properties.Resources.marble_black;
+                    tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+                    tableLayoutPanel1.ForeColor = Color.WhiteSmoke;
+                    //btnGen.BackgroundImage = global::PackGenCsharp.Properties.Resources.marble_black;
+                    //btnPick.BackgroundImage = global::PackGenCsharp.Properties.Resources.marble_black;
+                    btnPick.FlatStyle = FlatStyle.Popup;
+                    btnGen.FlatStyle = FlatStyle.Popup;
+                    //btnPick.BackgroundImageLayout = BackgroundImageLayout.Center
                     darkToolStripMenuItem.Checked = true;
                     marbleToolStripMenuItem.Checked = false;
                     defaultToolStripMenuItem.Checked = false;
-                    /*toolStrip1.BackColor = SystemColors.ControlDarkDark;
-                    toolStrip1.ForeColor = Color.WhiteSmoke;
 
-                    tbPack.ForeColor = Color.WhiteSmoke;
-                    tbPack.BackColor = SystemColors.ControlDarkDark;
-                    lbPossibles.ForeColor = Color.WhiteSmoke;
-                    lbPossibles.BackColor = SystemColors.ControlDarkDark;
-                    lbDraws.ForeColor = Color.WhiteSmoke;
-                    lbDraws.BackColor = SystemColors.ControlDarkDark;
-                    Form1.ActiveForm.BackColor = toolStrip1.BackColor;*/
                     break;
-                //Marble theme
+                //White Marble theme
                 case 2:
-                    Form1.ActiveForm.BackColor = Color.OrangeRed;
-                    Form1.ActiveForm.ForeColor = Color.Yellow;
                     marbleToolStripMenuItem.Checked = true;
                     defaultToolStripMenuItem.Checked = false;
                     darkToolStripMenuItem.Checked = false;
-                    /*toolStrip1.BackColor = Color.Firebrick;
-                    toolStrip1.ForeColor = Color.LightYellow;
 
-                    tbPack.ForeColor = Color.Yellow;
-                    tbPack.BackColor = Color.OrangeRed;
-                    lbPossibles.ForeColor = Color.Yellow;
-                    lbPossibles.BackColor = Color.OrangeRed;
-                    lbDraws.ForeColor = Color.Yellow;
-                    lbDraws.BackColor = Color.OrangeRed;*/
-                    //Form1.ActiveForm.BackColor = menuStrip1.BackColor;
+                    lbDraws.BackColor = Color.White;
+                    lbPossibles.BackColor = Color.White;
+                    tbPack.BackColor = Color.White;
+                    tbPack.ForeColor = Color.Black;
+                    lbDraws.ForeColor = Color.Black;
+                    lbPossibles.ForeColor = Color.Black;
+                    tbPack.BorderStyle = BorderStyle.FixedSingle;
+                    lbDraws.BorderStyle = BorderStyle.FixedSingle;
+                    lbPossibles.BorderStyle = BorderStyle.FixedSingle;
+                    tableLayoutPanel1.BackgroundImage = global::PackGenCsharp.Properties.Resources.marble_white;
+                    tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+                    tableLayoutPanel1.ForeColor = Color.Black;
+                    //btnGen.BackgroundImage = global::PackGenCsharp.Properties.Resources.marble_black;
+                    //btnPick.BackgroundImage = global::PackGenCsharp.Properties.Resources.marble_black;
+                    btnPick.FlatStyle = FlatStyle.Popup;
+                    btnGen.FlatStyle = FlatStyle.Popup;
+                    //btnPick.BackgroundImageLayout = BackgroundImageLayout.Center
                     break;
             }
             //waterfall the form1 back color and fore color to other controls
-            tbPack.ForeColor = Form1.ActiveForm.ForeColor;
+            /*tbPack.ForeColor = Form1.ActiveForm.ForeColor;
             tbPack.BackColor = Form1.ActiveForm.BackColor;
             lbPossibles.ForeColor = Form1.ActiveForm.ForeColor;
             lbPossibles.BackColor = Form1.ActiveForm.BackColor;
@@ -97,7 +113,7 @@ namespace PackGenCsharp
             btnGen.ForeColor = Form1.ActiveForm.ForeColor;
             btnGen.BackColor = Form1.ActiveForm.BackColor;
             toolStrip1.BackColor = SystemColors.Control;
-            toolStrip1.ForeColor = Color.Black;
+            toolStrip1.ForeColor = Color.Black;*/
 
             //If custom font color...(ORIGINAL)
             /*if (chosenColor != null)
@@ -134,7 +150,7 @@ namespace PackGenCsharp
                 foreach (string item in cards)
                 {
                     lbPossibles.Items.Add(item);
-                }                          
+                }
 
             }
         }
@@ -149,26 +165,26 @@ namespace PackGenCsharp
                 Random r = new Random();
 
                 //Checking if number of packs is not zero or a negative number
-                    //Checking if deck file is selected
-                    if (cards != null)
+                //Checking if deck file is selected
+                if (cards != null)
+                {
+                    //StringBuilder sbDraws = new StringBuilder();
+                    //for loop to run for every pack
+                    for (int i = 0; i < numPacks; i++)
                     {
-                        //StringBuilder sbDraws = new StringBuilder();
-                        //for loop to run for every pack
-                        for (int i = 0; i < numPacks; i++)
+                        //for loop to randomly draw five cards for every pack
+                        for (int j = 0; j < 5; j++)
                         {
-                            //for loop to randomly draw five cards for every pack
-                            for (int j = 0; j < 5; j++)
-                            {
-                                lbDraws.Items.Add(cards[r.Next(cards.Length)]);
-                            }
-                            //add a space to seperate packs
-                            lbDraws.Items.Add("");
+                            lbDraws.Items.Add(cards[r.Next(cards.Length)]);
                         }
+                        //add a space to seperate packs
+                        lbDraws.Items.Add("");
                     }
-                    else
-                    {
-                        MessageBox.Show("You must select a valid deck file!");
-                    }
+                }
+                else
+                {
+                    MessageBox.Show("You must select a valid deck file!");
+                }
             }
             else
             {
@@ -184,7 +200,7 @@ namespace PackGenCsharp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            ChangeTheme(1);
         }
 
         private void newToolStripButton_Click(object sender, EventArgs e)
@@ -230,7 +246,7 @@ namespace PackGenCsharp
                 "1. Open a source text file, where your cards are stored line-by-line, with no spaces, using the 'Pick Source' button\n" +
                 "2. Specify a number of card packs to open in the text box\n" +
                 "3. Click the 'Open Packs' button to generate your results\n" +
-                "(optional) 4. Click the 'Save' button to save your results to a text file\n\n"+
+                "(optional) 4. Click the 'Save' button to save your results to a text file\n\n" +
                 "Original Author: Robert Tripp Ross IV\n" +
                 "V0.1\n");
             tbPack.Focus();
@@ -252,4 +268,3 @@ namespace PackGenCsharp
         }
     }
 }
- 
